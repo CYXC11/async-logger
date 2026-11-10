@@ -19,6 +19,8 @@ namespace tinylog {
 
         void log(Level level, std::string_view message);
 
+        void flush();
+
     private:
         std::ofstream file_;
     };

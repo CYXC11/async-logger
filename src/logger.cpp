@@ -38,4 +38,13 @@ namespace tinylog {
         }
     }
 
+    void Logger::flush()
+    {
+        file_.flush();
+
+        if (!file_) {
+            throw std::runtime_error("Cannot flush log file");
+        }
+    }
+
 } // namespace tinylog
