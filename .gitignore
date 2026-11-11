@@ -1,5 +1,10 @@
 .idea/
 .vscode/
-cmake-build-debug/
-build/
+/cmake-build-*/
+/build/
+/build-*/
 *.log
+/.clang-format
+
+/src/producer_consumer.cpp
+/src/promise_future.cpp
