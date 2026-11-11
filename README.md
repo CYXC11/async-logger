@@ -35,3 +35,5 @@ CMake 目标 `async_logger` 同时提供两种 logger。`logger_demo` 和 `async
 - 在对象存活期间，一个线程可以调用 `shutdown()`，同时其他线程仍在调用 `log()` 或 `flush()`。关闭前已入队的任务按队列顺序处理，后台故障时按上述规则处理。关闭开始时还未入队的调用会收到 `std::runtime_error`。
 - 调用方须串行调用 `shutdown()`，并确保所有成员调用都已结束后再销毁对象。`shutdown()` 只等待 logger 自身的后台线程退出，调用方仍需等待各生产者结束。
 - 同一路径若由多个实例或进程同时写入，写入顺序和日志记录的完整性需要调用方协调。
+
+故障复盘见 [V1.6 异步 `flush()` 故障复盘](docs/v1.6-flush-failure.md)。
