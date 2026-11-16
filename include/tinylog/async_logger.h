@@ -6,7 +6,7 @@
 #include <filesystem>
 #include <fstream>
 #include <mutex>
-#include <queue>
+#include <vector>
 #include <string>
 #include <string_view>
 #include <thread>
@@ -42,7 +42,8 @@ private:
     void worker_loop();
 
     std::ofstream file_;
-    std::queue<Task> queue_;
+    // 换为 std::vector<Task>，因为我们需要批量处理任务
+    std::vector<Task> queue_;
 
     std::mutex mutex_;
     std::condition_variable cv_;
